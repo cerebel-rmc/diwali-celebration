@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-amavasya: #09060E;
+    --bg-aubergine: #130D1C;
+    --bg-glass: rgba(26, 17, 38, 0.72);
+    --text-ivory: #FFF9F0;
+    --text-sandalwood: #D4C4B4;
+    --text-terracotta: #9A8678;
+    --accent-gold: #F5C542;
+    --accent-flame: #FF7A00;
+    --accent-kumkum: #D81B60;
+    --accent-emerald: #00C49A;
+    --accent-sparkler: #FFFDF5;
+
+    --font-display: 'Rozha One', 'Cormorant Garamond', Georgia, serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #09060E;
+    color: #FFF9F0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #09060E;
+    color: #FFF9F0;
+    overflow-x: hidden;
+    selection-background-color: #F5C542;
+    selection-color: #09060E;
+  }
+
+  ::selection {
+    background: rgba(245, 197, 66, 0.35);
+    color: #FFF9F0;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-sans-body {
+  font-family: var(--font-sans);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Metallic Kundan Gold Gradient Text */
+.text-gold-shimmer {
+  background: linear-gradient(
+    135deg,
+    #FFFDF5 0%,
+    #F5C542 30%,
+    #FF9E2C 55%,
+    #F5C542 80%,
+    #FFF8DC 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldTextFlow 6s ease-in-out infinite;
+}
+
+@keyframes goldTextFlow {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+/* Glassmorphic Royal Card */
+.royal-glass {
+  background: rgba(26, 17, 38, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 197, 66, 0.22);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 24px rgba(245, 197, 66, 0.06);
+}
+
+.royal-glass-hover {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.royal-glass-hover:hover {
+  border-color: rgba(245, 197, 66, 0.55);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 122, 0, 0.16), inset 0 0 30px rgba(245, 197, 66, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Sacred Diya Flame Animations */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1) rotate(-1deg);
+  }
+  25% {
+    transform: scaleX(0.94) scaleY(1.06) rotate(1.5deg);
+  }
+  50% {
+    transform: scaleX(1.04) scaleY(0.96) rotate(-1.8deg);
+  }
+  75% {
+    transform: scaleX(0.96) scaleY(1.04) rotate(1deg);
+  }
+}
+
+@keyframes flameInnerPulse {
+  0%, 100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.92, 1.08);
+  }
+}
+
+@keyframes haloBreath {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.16);
+  }
+}
+
+@keyframes toranSway {
+  0%, 100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes toranRing {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(12deg) scale(1.08);
+  }
+  40% {
+    transform: rotate(-10deg) scale(1.08);
+  }
+  60% {
+    transform: rotate(6deg) scale(1.04);
+  }
+  80% {
+    transform: rotate(-4deg) scale(1.02);
+  }
+}
+
+@keyframes lanternFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(-1deg);
+  }
+  33% {
+    transform: translateY(-18px) translateX(8px) rotate(1.5deg);
+  }
+  66% {
+    transform: translateY(-8px) translateX(-6px) rotate(-0.8deg);
+  }
+}
+
+@keyframes chakriSpinFast {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringBounce {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.06);
+  }
+  75% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-flame {
+  transform-origin: 50% 90%;
+  animation: flameFlicker 2.1s ease-in-out infinite;
+}
+
+.animate-flame-inner {
+  transform-origin: 50% 90%;
+  animation: flameInnerPulse 1.4s ease-in-out infinite;
+}
+
+.animate-halo {
+  transform-origin: 50% 50%;
+  animation: haloBreath 3s ease-in-out infinite;
+}
+
+.animate-toran {
+  transform-origin: 50% 0%;
+  animation: toranSway 4.5s ease-in-out infinite;
+}
+
+.animate-toran-ring {
+  transform-origin: 50% 0%;
+  animation: toranRing 0.8s ease-in-out;
+}
+
+.animate-lantern {
+  animation: lanternFloat 9s ease-in-out infinite;
+}
+
+.animate-chakri {
+  animation: chakriSpinFast 0.45s linear infinite;
+}
+
+.animate-ring-bounce {
+  transform-origin: center;
+  animation: ringBounce 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Scroll Reveal Classes */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(36px) scale(0.98);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09060E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #F5C542, #FF7A00, #D81B60);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-flame,
+  .animate-flame-inner,
+  .animate-halo,
+  .animate-toran,
+  .animate-lantern {
+    animation: none !important;
+  }
+}
